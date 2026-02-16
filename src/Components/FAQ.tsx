@@ -10,18 +10,24 @@ const FAQItem = ({ que, ans }: FAQType) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border border-(--tertiary-color) rounded-xl p-5">
+    <div className="border border-(--tertiary-color) rounded-xl p-4 sm:p-5">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex justify-between items-center text-left font-medium text-(--secondary-text-color)"
+        className="w-full flex justify-between items-center text-left text-sm sm:text-base lg:text-lg text-(--secondary-text-color)"
       >
-        {que}
+        <span className="pr-4">{que}</span>
         <ChevronDown
-          className={`transition-transform ${open ? "rotate-180" : ""}`}
+          className={`min-w-5 transition-transform duration-300 ${
+            open ? "rotate-180" : ""
+          }`}
         />
       </button>
 
-      {open && <p className="mt-3 text-(--grey-70) text-sm">{ans}</p>}
+      {open && (
+        <p className="mt-3 text-sm sm:text-base lg:text-lg text-(--grey-70)">
+          {ans}
+        </p>
+      )}
     </div>
   );
 };
@@ -47,28 +53,28 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="space-y-10 mt-20 mb-20">
+    <div className="space-y-8 md:space-y-10 mt-14 sm:mt-16 md:mt-20 mb-14 sm:mb-16 md:mb-20 px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col gap-4">
-        <h2 className="text-6xl">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
           <span className="text-(--primary-color)">Frequently</span>{" "}
           <span className="text-(--secondary-text-color)">Asked Questions</span>
         </h2>
 
-        <p className="text-(--grey-70) text-xl">
+        <p className="text-base sm:text-lg lg:text-xl mt-3 text-(--grey-70)">
           Still you have any questions? Contact our Team via
           support@yourbank.com
         </p>
       </div>
 
-      <div className="grid gap-4">
+      <div className="grid gap-3 sm:gap-4">
         {FAQData.map((data, index) => (
           <FAQItem key={index} {...data} />
         ))}
       </div>
 
-      <button className="flex items-center gap-2 px-6 py-3 bg-(--background-navbar-color) rounded-3xl text-(--secondary-text-color) mx-auto text-2xl">
+      <button className="flex items-center gap-2 px-5 sm:px-6 py-2 sm:py-3 bg-(--background-navbar-color) rounded-full text-(--secondary-text-color) mx-auto text-base sm:text-lg md:text-2xl transition hover:opacity-80">
         Load All FAQs
-        <ChevronDown className="text-2xl" />
+        <ChevronDown className="text-lg sm:text-xl md:text-2xl" />
       </button>
     </div>
   );

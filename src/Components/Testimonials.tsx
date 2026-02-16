@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 type Category = "individuals" | "businesses";
@@ -22,10 +22,7 @@ const testimonials: Record<Category, TestimonialItem[]> = {
       text: "Realize your dreams with flexible loan and mortgage solutions.",
       name: "Emily G",
     },
-    {
-      text: "Best personal banking experience I’ve had.",
-      name: "Chris P",
-    },
+    { text: "Best personal banking experience I’ve had.", name: "Chris P" },
   ],
   businesses: [
     {
@@ -50,9 +47,27 @@ const testimonials: Record<Category, TestimonialItem[]> = {
 const Testimonials = () => {
   const [category, setCategory] = useState<Category>("individuals");
   const [startIndex, setStartIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(3);
 
   const data = testimonials[category];
-  const visibleCount = 3;
+
+  /* ---------- Responsive Visible Count ---------- */
+  useEffect(() => {
+    const updateVisibleCount = () => {
+      if (window.innerWidth < 640) {
+        setVisibleCount(1); // Mobile
+      } else if (window.innerWidth < 1024) {
+        setVisibleCount(2); // Tablet
+      } else {
+        setVisibleCount(3); // Desktop
+      }
+    };
+
+    updateVisibleCount();
+    window.addEventListener("resize", updateVisibleCount);
+
+    return () => window.removeEventListener("resize", updateVisibleCount);
+  }, []);
 
   const nextSlide = () => {
     setStartIndex((prev) => (prev + 1) % data.length);
@@ -72,21 +87,22 @@ const Testimonials = () => {
   });
 
   return (
-    <div className="py-14">
-      <h2 className="text-6xl text-(--secondary-text-color)">
+    <div className="py-10 sm:py-12 md:py-14 px-4 sm:px-6 lg:px-8">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold text-(--secondary-text-color)">
         Our <span className="text-(--primary-color)">Testimonials</span>
       </h2>
-      <div className="flex flex-col md:flex-row justify-between gap-6 pt-6 pb-10">
-        <p className="md:w-2/3 text-(--grey-70) text-xl">
+
+      <div className="flex flex-col md:flex-row justify-between gap-6 pt-6 pb-8 md:pb-10">
+        <p className="md:w-2/3 text-base sm:text-lg md:text-xl text-(--grey-70)">
           Discover a range of comprehensive and customizable banking products at
           YourBank, designed to suit your unique financial needs and
           aspirations.
         </p>
 
-        <div className="flex gap-2 bg-(--background-navbar-color) p-2 rounded-3xl text-(--secondary-text-color)">
+        <div className="flex flex-wrap sm:flex-nowrap gap-2 bg-(--background-navbar-color) p-2 rounded-full text-(--secondary-text-color) border border-(--tertiary-color)">
           <button
             onClick={() => changeCategory("individuals")}
-            className={`text-2xl px-4 py-2 rounded-3xl font-medium transition ${
+            className={`text-xl sm:text-2xl lg:text-3xl font-semibold px-4 py-2 rounded-full transition whitespace-nowrap ${
               category === "individuals"
                 ? "bg-(--background-primary-color) text-(--tertiary-text-color)"
                 : "text-(--tertiary-text-size)"
@@ -97,7 +113,7 @@ const Testimonials = () => {
 
           <button
             onClick={() => changeCategory("businesses")}
-            className={`text-2xl px-4 py-2 rounded-3xl font-medium transition ${
+            className={`text-xl sm:text-2xl lg:text-3xl font-semibold px-4 py-2 rounded-full  transition whitespace-nowrap ${
               category === "businesses"
                 ? "bg-(--background-primary-color) text-(--tertiary-text-color)"
                 : "text-(--tertiary-text-size)"
@@ -111,30 +127,40 @@ const Testimonials = () => {
       <div className="relative">
         <button
           onClick={prevSlide}
-          className="absolute -left-6 top-1/2 -translate-y-1/2 bg-black p-3 rounded-full"
+          className="absolute left-0 sm:-left-4 md:-left-6 top-1/2 -translate-y-1/2 bg-black p-2 sm:p-3 rounded-full z-10"
         >
-          <ArrowLeft className="text-(--primary-color)" />
+          <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 text-(--primary-color)" />
         </button>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div
+          className={`grid gap-6 ${
+            visibleCount === 1
+              ? "grid-cols-1"
+              : visibleCount === 2
+              ? "grid-cols-2"
+              : "grid-cols-3"
+          }`}
+        >
           {visibleTestimonials.map((item, index) => (
             <div
               key={index}
-              className="bg-(--background-navbar-color) p-6 rounded-2xl text-center"
+              className="bg-(--background-navbar-color) p-5 sm:p-6 rounded-2xl text-center"
             >
-              <div className="flex items-center gap-4 mb-4">
+              <div className="flex items-center gap-3 sm:gap-4 mb-4">
                 <hr className="grow border-(--grey-30)" />
                 <img
                   src="/src/assets/Images/quotes2.png"
-                  className="w-10 h-10"
+                  className="w-8 h-8 sm:w-10 sm:h-10"
                   alt="quote"
                 />
                 <hr className="grow border-(--grey-30)" />
               </div>
 
-              <p className="text-(--grey-70) text-sm">{item.text}</p>
+              <p className="text-xs sm:text-sm md:text-base text-(--grey-70)">
+                {item.text}
+              </p>
 
-              <h3 className="mt-4 font-semibold text-(--green-65)">
+              <h3 className="mt-4 font-semibold text-sm sm:text-base md:text-lg text-(--green-65)">
                 {item.name}
               </h3>
             </div>
@@ -143,9 +169,9 @@ const Testimonials = () => {
 
         <button
           onClick={nextSlide}
-          className="absolute -right-6 top-1/2 -translate-y-1/2 bg-black p-3 rounded-full"
+          className="absolute right-0 sm:-right-4 md:-right-6 top-1/2 -translate-y-1/2 bg-black p-2 sm:p-3 rounded-full z-10"
         >
-          <ArrowRight className="text-(--primary-color)" />
+          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-(--primary-color)" />
         </button>
       </div>
     </div>

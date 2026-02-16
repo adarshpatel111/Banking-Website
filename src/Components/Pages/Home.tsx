@@ -4,6 +4,7 @@ import Testimonials from "../Testimonials";
 import OurFeatures from "../OurFeatures";
 import Usecase from "../Usecase";
 import FAQ from "../FAQ";
+import StartUrJourney from "../StartUrJourney";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <OurFeatures />
       <FAQ />
       <Testimonials />
+      <StartUrJourney />
     </>
   );
 };

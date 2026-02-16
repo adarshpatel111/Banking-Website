@@ -38,11 +38,11 @@ const PressRealease = () => {
     <section className="py-14 mb-10 space-y-10">
       {/* Heading */}
       <div className="space-y-4">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl text-(--secondary-text-color)">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold text-(--secondary-text-color)">
           Press <span className="text-(--primary-color)">Releases</span>
         </h2>
 
-        <p className="md:w-2/3 text-(--grey-70) text-base sm:text-lg">
+        <p className="md:w-2/3 text-(--grey-70) text-base sm:text-lg lg:text-xl mt-3">
           Stay updated with the latest happenings and exciting developments at
           YourBank through our press releases.
         </p>
@@ -79,11 +79,11 @@ const PressRealease = () => {
               </h3>
 
               {/* Meta Info */}
-              <div className="flex items-center gap-2 text-sm text-(--grey-70)">
-                <span className="px-3 py-1 rounded-3xl border border-(--tertiary-color) bg-(--background-screen-color)">
+              <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-(--grey-70)">
+                <span className="px-3 py-1 rounded-full border border-(--tertiary-color) bg-(--background-screen-color)">
                   Loaction: {item.location}
                 </span>
-                <span className="px-3 py-1 rounded-3xl border border-(--tertiary-color) bg-(--background-screen-color)">
+                <span className="px-3 py-1 rounded-full border border-(--tertiary-color) bg-(--background-screen-color)">
                   Date: {item.date}
                 </span>
               </div>

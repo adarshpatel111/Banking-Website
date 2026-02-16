@@ -53,7 +53,7 @@ const BannerStyleIntro = ({
               : "order-2 lg:order-1 lg:-mr-24 xl:-mr-32"
           }`}
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold leading-tight">
               {title}
               {highlightText && (
                 <span className="text-(--primary-color)">{highlightText}</span>

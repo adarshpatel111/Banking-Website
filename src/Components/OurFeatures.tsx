@@ -27,7 +27,6 @@ const featuresData: Record<FeatureCategory, FeatureItem[]> = {
       desc: "Save time and avoid late fees with our convenient bill pay service. Set up recurring payments or make one-time transfers between your accounts with just a few clicks.",
     },
   ],
-
   financialTools: [
     {
       title: "Budget Planner",
@@ -46,7 +45,6 @@ const featuresData: Record<FeatureCategory, FeatureItem[]> = {
       desc: "Generate expense reports and financial summaries instantly.",
     },
   ],
-
   customerSupport: [
     {
       title: "24/7 Support",
@@ -69,26 +67,27 @@ const featuresData: Record<FeatureCategory, FeatureItem[]> = {
 
 const OurFeatures = () => {
   const [category, setCategory] = useState<FeatureCategory>("onlineBanking");
-
   const data = featuresData[category];
 
   return (
-    <div className="space-y-10 text-(--secondary-text-color) my-10">
+    <div className="space-y-8 md:space-y-10 text-(--secondary-text-color) my-10 md:my-14 px-4 sm:px-6 lg:px-8">
       {/* Heading */}
       <div className="flex flex-col gap-4">
-        <h2 className="text-6xl">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold">
           <span>Our</span>
           <span className="text-(--primary-color)"> Features</span>
         </h2>
 
-        <p className="text-(--grey-70) text-xl max-w-2xl">
+        <p className="text-base sm:text-lg lg:text-xl mt-3text-(--grey-70) max-w-2xl">
           Experience powerful features including seamless online banking, secure
           transactions, and personalized financial insights.
         </p>
       </div>
 
-      <div className="grid grid-cols-[2fr_8fr] gap-6">
-        <div className="w-[80%] h-[90%] bg-(--secondary-color) p-10 rounded-2xl flex flex-col gap-3 text-2xl">
+      {/* Main Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-[2fr_8fr] gap-6">
+        {/* Sidebar */}
+        <div className="md:w-[80%] md:h-[90%] bg-(--secondary-color) p-6 sm:p-8 md:p-10 rounded-2xl flex flex-col gap-3 text-base sm:text-lg md:text-2xl">
           {[
             { key: "onlineBanking", label: "Online Banking" },
             { key: "financialTools", label: "Financial Tools" },
@@ -111,20 +110,24 @@ const OurFeatures = () => {
         </div>
 
         {/* Feature Cards */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {data.map((feature, index) => (
             <div
               key={index}
               className="relative flex flex-col gap-3
               bg-(--background-navbar-color)
-              p-8 rounded-2xl
+              p-6 sm:p-8 rounded-2xl
               border border-(--tertiary-color)"
             >
-              <ArrowUpRight className="absolute top-5 right-5 text-(--primary-color)" />
+              <ArrowUpRight className="absolute top-4 sm:top-5 right-4 sm:right-5 text-(--primary-color)" />
 
-              <h3 className="text-xl font-semibold">{feature.title}</h3>
+              <h3 className="text-lg sm:text-xl font-semibold">
+                {feature.title}
+              </h3>
 
-              <p className="text-(--grey-70)">{feature.desc}</p>
+              <p className="text-sm sm:text-base text-(--grey-70)">
+                {feature.desc}
+              </p>
             </div>
           ))}
         </div>

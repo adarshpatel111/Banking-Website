@@ -1,11 +1,11 @@
 const MissionandVision = () => {
   return (
     <div className="py-14 mb-10 space-y-10">
-      <h2 className="text-5xl text-(--secondary-text-color)">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold text-(--secondary-text-color)">
         Mission & <span className="text-(--primary-color)">Vision</span>
       </h2>
 
-      <p className="md:w-2/3 text-(--grey-70) text-xl">
+      <p className="md:w-2/3 text-(--grey-70) text-base sm:text-lg lg:text-xl mt-3">
         We envision being a leading force in the industry, driven by innovation,
         integrity, and inclusivity, creating a brighter financial future for
         individuals and businesses while maintaining a strong commitment to
@@ -60,11 +60,11 @@ const MissionandVision = () => {
                   }
                 `}
             >
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-(--secondary-text-color)">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold text-(--secondary-text-color)">
                 {item.title}
               </h2>
 
-              <p className="text-(--grey-70) text-base sm:text-lg leading-relaxed">
+              <p className="text-(--grey-70) text-sm sm:text-base lg:text-lg leading-relaxed">
                 {item.desc}
               </p>
             </div>

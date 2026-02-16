@@ -19,10 +19,10 @@ const OurValues = () => {
   ];
   return (
     <div className="py-14 mb-10 space-y-10">
-      <h2 className="text-5xl text-(--secondary-text-color)">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold text-(--secondary-text-color)">
         Our <span className="text-(--primary-color)">Values</span>
       </h2>
-      <p className="md:w-2/3 text-(--grey-70) text-xl">
+      <p className="md:w-2/3 text-(--grey-70) text-base sm:text-lg lg:text-xl mt-3">
         At YourBank, our values form the foundation of our organization and
         guide our actions. We believe in upholding the highest standards of
         integrity, delivering exceptional service, and embracing innovation.

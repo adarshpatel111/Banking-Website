@@ -28,11 +28,11 @@ const ProtectYou = () => {
     <section className="py-14 mb-10 space-y-10">
       {/* Heading */}
       <div className="space-y-4">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl text-(--secondary-text-color)">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold text-(--secondary-text-color)">
           How We <span className="text-(--primary-color)">Protect You</span>
         </h2>
 
-        <p className="md:w-2/3 text-(--grey-70) text-base sm:text-lg">
+        <p className="md:w-2/3 text-(--grey-70) text-base sm:text-lg lg:text-xl mt-3">
           At YourBank, we prioritize the security and confidentiality of your
           financial information.
         </p>
@@ -57,14 +57,14 @@ const ProtectYou = () => {
               "
             >
               {/* Icon + Title */}
-              <div className="flex items-center gap-4">
-                <div className="p-2 bg-(--primary-color)/20 rounded-4xl">
-                  <div className="p-3 bg-(--primary-color)/30 rounded-3xl">
-                    <Icon className="text-(--primary-color)/90" size={26} />
+              <div className="flex flex-col lg:flex-row items-center gap-4">
+                <div className="p-2 bg-(--primary-color)/20 rounded-full">
+                  <div className="p-3 bg-(--primary-color)/25 rounded-full">
+                    <Icon className="text-(--primary-color)" size={26} />
                   </div>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-semibold text-(--secondary-text-color)">
+                <h3 className="text-center text-xl sm:text-2xl font-semibold text-(--secondary-text-color)">
                   {item.title}
                 </h3>
               </div>

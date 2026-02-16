@@ -60,11 +60,11 @@ const JobOpening = () => {
     <section className="py-14 mb-10 space-y-10">
       {/* Heading */}
       <div className="space-y-4">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl text-(--secondary-text-color)">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold text-(--secondary-text-color)">
           Job <span className="text-(--primary-color)">Openings</span>
         </h2>
 
-        <p className="md:w-2/3 text-(--grey-70) text-base sm:text-lg">
+        <p className="text-base sm:text-lg lg:text-xl mt-3 text-(--grey-70)">
           Explore exciting job openings at YourBank, where we value talent,
           innovation, and a passion for customer service.
         </p>
@@ -76,7 +76,7 @@ const JobOpening = () => {
           <div
             key={job.title}
             className="
-              p-6 rounded-3xl 
+              p-6 rounded-3xl
               border border-(--tertiary-color) 
               bg-(--background-screen-color)
               shadow-md hover:shadow-lg transition
@@ -85,18 +85,18 @@ const JobOpening = () => {
             "
           >
             {/* Content */}
-            <div className="space-y-5 flex-grow">
+            <div className="space-y-5 grow">
               {/* Title */}
               <h3 className="text-xl sm:text-2xl font-semibold text-(--secondary-text-color)">
                 {job.title}
               </h3>
 
               {/* Meta */}
-              <div className="text-(--grey-70) text-sm sm:text-base space-y-1">
-                <p>
+              <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-(--grey-70)">
+                <p className="px-3 py-1 rounded-full border border-(--tertiary-color) bg-(--background-screen-color)">
                   <strong>Location:</strong> {job.location}
                 </p>
-                <p>
+                <p className="px-3 py-1 rounded-full border border-(--tertiary-color) bg-(--background-screen-color)">
                   <strong>Department:</strong> {job.department}
                 </p>
               </div>
@@ -127,7 +127,7 @@ const JobOpening = () => {
                 w-fit
                 bg-(--primary-color)
                 px-6 py-3
-                rounded-3xl
+                rounded-full
                 text-(--black)
                 font-semibold
                 hover:opacity-90
