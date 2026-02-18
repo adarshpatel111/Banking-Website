@@ -99,25 +99,52 @@ const Testimonials = () => {
           aspirations.
         </p>
 
-        <div className="flex flex-wrap sm:flex-nowrap gap-2 bg-(--background-navbar-color) p-2 rounded-full text-(--secondary-text-color) border border-(--tertiary-color)">
+        <div
+          className="
+      flex w-full sm:w-auto
+      bg-(--background-navbar-color)
+      p-1 sm:p-1.5
+      rounded-full
+      border border-(--tertiary-color)
+      text-(--secondary-text-color)
+    "
+        >
           <button
             onClick={() => changeCategory("individuals")}
-            className={`text-xl sm:text-2xl lg:text-3xl font-semibold px-4 py-2 rounded-full transition whitespace-nowrap ${
-              category === "individuals"
-                ? "bg-(--background-primary-color) text-(--tertiary-text-color)"
-                : "text-(--tertiary-text-size)"
-            }`}
+            className={`
+        flex-1 sm:flex-none
+        text-xs sm:text-sm md:text-base lg:text-lg
+        font-semibold
+        px-4 sm:px-6 py-2
+        rounded-full
+        transition-all duration-300
+        whitespace-nowrap
+        ${
+          category === "individuals"
+            ? "bg-(--background-primary-color) text-(--tertiary-text-color) shadow-md"
+            : "opacity-70 hover:opacity-100"
+        }
+      `}
           >
             For Individuals
           </button>
 
           <button
             onClick={() => changeCategory("businesses")}
-            className={`text-xl sm:text-2xl lg:text-3xl font-semibold px-4 py-2 rounded-full  transition whitespace-nowrap ${
-              category === "businesses"
-                ? "bg-(--background-primary-color) text-(--tertiary-text-color)"
-                : "text-(--tertiary-text-size)"
-            }`}
+            className={`
+        flex-1 sm:flex-none
+        text-xs sm:text-sm md:text-base lg:text-lg
+        font-semibold
+        px-4 sm:px-6 py-2
+        rounded-full
+        transition-all duration-300
+        whitespace-nowrap
+        ${
+          category === "businesses"
+            ? "bg-(--background-primary-color) text-(--tertiary-text-color) shadow-md"
+            : "opacity-70 hover:opacity-100"
+        }
+      `}
           >
             For Businesses
           </button>
@@ -127,52 +154,84 @@ const Testimonials = () => {
       <div className="relative">
         <button
           onClick={prevSlide}
-          className="absolute left-0 sm:-left-4 md:-left-6 top-1/2 -translate-y-1/2 bg-black p-2 sm:p-3 rounded-full z-10"
+          className="hidden sm:flex absolute left-0 sm:-left-4 md:-left-6 top-1/2 -translate-y-1/2 bg-black p-2 sm:p-3 rounded-full z-30"
         >
           <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 text-(--primary-color)" />
         </button>
-
         <div
-          className={`grid gap-6 ${
-            visibleCount === 1
-              ? "grid-cols-1"
-              : visibleCount === 2
-              ? "grid-cols-2"
-              : "grid-cols-3"
-          }`}
+          className="
+    relative
+    rounded-2xl sm:rounded-3xl lg:rounded-none
+    border border-(--tertiary-color) lg:border-0
+    overflow-hidden
+  "
         >
-          {visibleTestimonials.map((item, index) => (
+          <div
+            className="
+      relative
+      overflow-hidden
+      mask-[linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]
+      [-webkit-mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]
+    "
+          >
             <div
-              key={index}
-              className="bg-(--background-navbar-color) p-5 sm:p-6 rounded-2xl text-center"
+              className={`grid gap-6 transition-all duration-500 px-4 sm:px-6 ${
+                visibleCount === 1
+                  ? "grid-cols-1"
+                  : visibleCount === 2
+                  ? "grid-cols-2"
+                  : "grid-cols-3"
+              }`}
             >
-              <div className="flex items-center gap-3 sm:gap-4 mb-4">
-                <hr className="grow border-(--grey-30)" />
-                <img
-                  src="/src/assets/Images/quotes2.png"
-                  className="w-8 h-8 sm:w-10 sm:h-10"
-                  alt="quote"
-                />
-                <hr className="grow border-(--grey-30)" />
-              </div>
+              {visibleTestimonials.map((item, index) => (
+                <div
+                  key={index}
+                  className="
+            p-5 sm:p-6
+            rounded-2xl
+            text-center
+            transition-all duration-300
+            hover:scale-105 hover:z-20
+          "
+                >
+                  <div className="flex items-center gap-3 sm:gap-4 mb-4">
+                    <hr className="grow border-(--grey-30)" />
+                    <img
+                      src="/src/assets/Images/quotes2.png"
+                      className="w-8 h-8 sm:w-10 sm:h-10"
+                      alt="quote"
+                    />
+                    <hr className="grow border-(--grey-30)" />
+                  </div>
 
-              <p className="text-xs sm:text-sm md:text-base text-(--grey-70)">
-                {item.text}
-              </p>
+                  <p className="text-xs sm:text-sm md:text-base text-(--grey-70) transition-colors duration-300 hover:text-white">
+                    {item.text}
+                  </p>
 
-              <h3 className="mt-4 font-semibold text-sm sm:text-base md:text-lg text-(--green-65)">
-                {item.name}
-              </h3>
+                  <h3 className="mt-4 font-semibold text-sm sm:text-base md:text-lg text-(--green-65)">
+                    {item.name}
+                  </h3>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
-
         <button
           onClick={nextSlide}
-          className="absolute right-0 sm:-right-4 md:-right-6 top-1/2 -translate-y-1/2 bg-black p-2 sm:p-3 rounded-full z-10"
+          className="hidden sm:flex absolute right-0 sm:-right-4 md:-right-6 top-1/2 -translate-y-1/2 bg-black p-2 sm:p-3 rounded-full z-30"
         >
           <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-(--primary-color)" />
         </button>
+
+        <div className="flex sm:hidden justify-center gap-4 mt-6">
+          <button onClick={prevSlide} className="bg-black p-3 rounded-full">
+            <ArrowLeft className="w-5 h-5 text-(--primary-color)" />
+          </button>
+
+          <button onClick={nextSlide} className="bg-black p-3 rounded-full">
+            <ArrowRight className="w-5 h-5 text-(--primary-color)" />
+          </button>
+        </div>
       </div>
     </div>
   );

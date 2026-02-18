@@ -2,12 +2,12 @@ import {
   Banknote,
   BriefcaseBusiness,
   Building,
-  HandCoins,
   Home,
   Landmark,
   PiggyBank,
 } from "lucide-react";
 import { useState } from "react";
+import IconBadge from "./IconBadge";
 
 /* ------------ DATA ------------ */
 interface Productsdata {
@@ -17,6 +17,8 @@ interface Productsdata {
     desc: string;
   }[];
 }
+
+type Category = "individuals" | "businesses";
 
 const productsData: Productsdata = {
   individuals: [
@@ -60,6 +62,10 @@ const Ourproducts = () => {
   const [category, setCategory] = useState("individuals");
   const data = productsData[category];
 
+  const changeCategory = (type: Category) => {
+    setCategory(type);
+  };
+
   return (
     <div className="py-10 sm:py-12 md:py-14 px-4 sm:px-6 lg:px-8">
       {/* Heading */}
@@ -76,25 +82,52 @@ const Ourproducts = () => {
         </p>
 
         {/* Toggle Buttons */}
-        <div className="flex flex-wrap sm:flex-nowrap gap-2 bg-(--background-navbar-color) p-2 rounded-full text-(--secondary-text-color) border border-(--tertiary-color)">
+        <div
+          className="
+      flex w-full sm:w-auto
+      bg-(--background-navbar-color)
+      p-1 sm:p-1.5
+      rounded-full
+      border border-(--tertiary-color)
+      text-(--secondary-text-color)
+    "
+        >
           <button
-            onClick={() => setCategory("individuals")}
-            className={`text-xl sm:text-2xl lg:text-3xl font-semibold px-4 py-2 rounded-full transition whitespace-nowrap ${
-              category === "individuals"
-                ? "bg-(--background-primary-color) text-(--tertiary-text-color)"
-                : "text-(--tertiary-text-size)"
-            }`}
+            onClick={() => changeCategory("individuals")}
+            className={`
+        flex-1 sm:flex-none
+        text-xs sm:text-sm md:text-base lg:text-lg
+        font-semibold
+        px-4 sm:px-6 py-2
+        rounded-full
+        transition-all duration-300
+        whitespace-nowrap
+        ${
+          category === "individuals"
+            ? "bg-(--background-primary-color) text-(--tertiary-text-color) shadow-md"
+            : "opacity-70 hover:opacity-100"
+        }
+      `}
           >
             For Individuals
           </button>
 
           <button
-            onClick={() => setCategory("businesses")}
-            className={`text-xl sm:text-2xl lg:text-3xl font-semibold px-4 py-2 rounded-full transition whitespace-nowrap ${
-              category === "businesses"
-                ? "bg-(--background-primary-color) text-(--tertiary-text-color)"
-                : "text-(--tertiary-text-size)"
-            }`}
+            onClick={() => changeCategory("businesses")}
+            className={`
+        flex-1 sm:flex-none
+        text-xs sm:text-sm md:text-base lg:text-lg
+        font-semibold
+        px-4 sm:px-6 py-2
+        rounded-full
+        transition-all duration-300
+        whitespace-nowrap
+        ${
+          category === "businesses"
+            ? "bg-(--background-primary-color) text-(--tertiary-text-color) shadow-md"
+            : "opacity-70 hover:opacity-100"
+        }
+      `}
           >
             For Businesses
           </button>
@@ -112,8 +145,7 @@ const Ourproducts = () => {
                 : ""
             }`}
           >
-            <product.icon className="w-12 h-12 sm:w-16 sm:h-16 md:w-12 md:h-12 mx-auto mb-4 strock-1 stroke-(--primary-text-color)" />
-
+            <IconBadge icon={product.icon} size="md" className="mx-auto mb-6" />
             <h3 className="font-semibold text-base sm:text-lg mb-2 text-(--secondary-text-color)">
               {product.title}
             </h3>

@@ -1,4 +1,5 @@
 import { ShieldCheck, Lock, Eye, Fingerprint } from "lucide-react";
+import IconBadge from "./IconBadge";
 
 const protectData = [
   {
@@ -58,11 +59,7 @@ const ProtectYou = () => {
             >
               {/* Icon + Title */}
               <div className="flex flex-col lg:flex-row items-center gap-4">
-                <div className="p-2 bg-(--primary-color)/20 rounded-full">
-                  <div className="p-3 bg-(--primary-color)/25 rounded-full">
-                    <Icon className="text-(--primary-color)" size={26} />
-                  </div>
-                </div>
+                <IconBadge icon={Icon} size="sm" />
 
                 <h3 className="text-center text-xl sm:text-2xl font-semibold text-(--secondary-text-color)">
                   {item.title}

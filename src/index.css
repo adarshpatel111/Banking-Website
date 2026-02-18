@@ -67,3 +67,10 @@ body {
   margin: 0;
   font-family: var(--primary-font);
 }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

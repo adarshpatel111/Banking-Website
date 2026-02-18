@@ -59,7 +59,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-full left-0 w-full bg-(--background-navbar-color) md:hidden rounded-b-3xl shadow-lg">
+        <div className="absolute top-full left-0 w-full bg-(--background-navbar-color) md:hidden rounded-b-3xl shadow-lg z-20">
           <ul className="flex flex-col items-center gap-4 p-4">
             {NavLinks.map((link, index) => (
               <li key={index}>

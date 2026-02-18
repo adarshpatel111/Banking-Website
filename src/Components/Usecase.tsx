@@ -8,6 +8,7 @@ import {
   ShieldAlert,
   CreditCard,
 } from "lucide-react";
+import IconBadge from "./IconBadge";
 
 const Usecase = () => {
   return (
@@ -90,7 +91,7 @@ const IconBox = ({
   title: string;
 }) => (
   <div className="w-full h-40 sm:h-48 md:h-56 flex flex-col justify-center items-center gap-3 bg-(--background-screen-color) p-4 border-2 border-(--tertiary-color) rounded-2xl">
-    <Icon className="w-10 sm:w-12 md:w-14 text-(--primary-color)" />
+    <IconBadge icon={Icon} responsive />
     <span className="text-xs sm:text-sm text-center">{title}</span>
   </div>
 );

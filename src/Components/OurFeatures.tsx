@@ -86,27 +86,52 @@ const OurFeatures = () => {
 
       {/* Main Layout */}
       <div className="grid grid-cols-1 md:grid-cols-[2fr_8fr] gap-6">
-        {/* Sidebar */}
-        <div className="md:w-[80%] md:h-[90%] bg-(--secondary-color) p-6 sm:p-8 md:p-10 rounded-2xl flex flex-col gap-3 text-base sm:text-lg md:text-2xl">
-          {[
-            { key: "onlineBanking", label: "Online Banking" },
-            { key: "financialTools", label: "Financial Tools" },
-            { key: "customerSupport", label: "Customer Support" },
-          ].map((item) => (
-            <button
-              key={item.key}
-              onClick={() => setCategory(item.key as FeatureCategory)}
-              className={`p-3 rounded-2xl text-left transition-all duration-300 border-2 border-(--grey-15)
-                ${
-                  category === item.key
-                    ? "bg-(--background-screen-color) text-(--primary-color)"
-                    : "bg-(--tertiary-color) hover:bg-(--background-screen-color)/60"
-                }
-              `}
-            >
-              {item.label}
-            </button>
-          ))}
+        <div
+          className="
+    md:w-[80%] md:h-[90%]
+    bg-(--secondary-color)
+    p-4 sm:p-6 md:p-10
+    rounded-2xl
+    text-sm sm:text-lg md:text-2xl
+  "
+        >
+          <div
+            className="
+      flex md:flex-col
+      gap-6 lg:gap-3
+      overflow-x-auto md:overflow-visible
+      snap-x snap-mandatory
+      no-scrollbar
+    "
+          >
+            {[
+              { key: "onlineBanking", label: "Online Banking" },
+              { key: "financialTools", label: "Financial Tools" },
+              { key: "customerSupport", label: "Customer Support" },
+            ].map((item) => (
+              <button
+                key={item.key}
+                onClick={() => setCategory(item.key as FeatureCategory)}
+                className={`
+          shrink-0 md:shrink
+          snap-center
+          px-5 py-3
+          rounded-2xl
+          text-left
+          transition-all duration-300
+          border border-(--grey-15)
+          whitespace-nowrap md:whitespace-normal
+          ${
+            category === item.key
+              ? "bg-(--background-screen-color) text-(--primary-color) shadow-md"
+              : "bg-(--tertiary-color) hover:bg-(--background-screen-color)/60"
+          }
+        `}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Feature Cards */}

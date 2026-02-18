@@ -16,33 +16,37 @@ const MissionandVision = () => {
         {sectionData.map((item, index) => (
           <div
             key={index}
-            className={`flex flex-col lg:flex-row items-center gap-10 ${
+            className={`flex flex-col lg:flex-row items-center ${
               item.reverse ? "lg:flex-row-reverse" : ""
             }`}
           >
             {/* IMAGE SIDE */}
             <div
               className="
-                  w-full lg:w-1/2 relative 
-                  bg-(--background-navbar-color) 
-                  rounded-3xl
-                  p-10
-                  overflow-hidden
-                "
+    w-full lg:w-1/2
+    relative
+    bg-(--background-navbar-color)
+    rounded-2xl sm:rounded-3xl
+    p-5 sm:p-8 lg:p-10
+    overflow-hidden
+  "
             >
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-linear-to-br from-(--primary-color)/2 to-transparent pointer-events-none" />
+
               {/* Background Decorative Image */}
               <img
                 src={item.bgImage}
                 alt="bg"
-                className="absolute inset-0 w-full h-full object-cover opacity-100 pointer-events-none"
+                className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none"
               />
 
               {/* Main Image */}
-              <div className="relative rounded-3xl overflow-hidden p-6">
+              <div className="relative w-full aspect-4/3 rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover rounded-3xl"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
@@ -52,11 +56,12 @@ const MissionandVision = () => {
               className={`
                   w-full lg:w-1/2 space-y-6
                   lg:px-10
+                  
   
                   ${
                     item.reverse
-                      ? "lg:border-r-2 lg:border-(--primary-color)"
-                      : "lg:border-l-2 lg:border-(--primary-color)"
+                      ? "lg:border-r-2 lg:border-(--primary-color) pl-10"
+                      : "lg:border-l-2 lg:border-(--primary-color) pr-10"
                   }
                 `}
             >

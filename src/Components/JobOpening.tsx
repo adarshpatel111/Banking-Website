@@ -57,46 +57,48 @@ const jobData = [
 
 const JobOpening = () => {
   return (
-    <section className="py-14 mb-10 space-y-10">
+    <section className="py-12 sm:py-14 lg:py-20 mb-10 space-y-10 px-4 sm:px-6 lg:px-0">
       {/* Heading */}
-      <div className="space-y-4">
+      <div className="space-y-4 max-w-3xl">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold text-(--secondary-text-color)">
           Job <span className="text-(--primary-color)">Openings</span>
         </h2>
 
-        <p className="text-base sm:text-lg lg:text-xl mt-3 text-(--grey-70)">
+        <p className="text-sm sm:text-lg lg:text-xl text-(--grey-70)">
           Explore exciting job openings at YourBank, where we value talent,
           innovation, and a passion for customer service.
         </p>
       </div>
 
       {/* Job Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
         {jobData.map((job) => (
           <div
             key={job.title}
             className="
-              p-6 rounded-3xl
-              border border-(--tertiary-color) 
+              p-5 sm:p-6 lg:p-8
+              rounded-2xl sm:rounded-3xl
+              border border-(--tertiary-color)
               bg-(--background-screen-color)
-              shadow-md hover:shadow-lg transition
+              shadow-md hover:shadow-lg
+              transition-all duration-300
               flex flex-col
               h-full
             "
           >
             {/* Content */}
-            <div className="space-y-5 grow">
+            <div className="space-y-4 sm:space-y-5 grow">
               {/* Title */}
-              <h3 className="text-xl sm:text-2xl font-semibold text-(--secondary-text-color)">
+              <h3 className="text-lg sm:text-2xl font-semibold text-(--secondary-text-color)">
                 {job.title}
               </h3>
 
               {/* Meta */}
-              <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-(--grey-70)">
-                <p className="px-3 py-1 rounded-full border border-(--tertiary-color) bg-(--background-screen-color)">
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 text-xs sm:text-sm font-medium text-(--grey-70)">
+                <p className="px-3 py-1 rounded-full border border-(--tertiary-color) bg-(--background-screen-color) w-fit">
                   <strong>Location:</strong> {job.location}
                 </p>
-                <p className="px-3 py-1 rounded-full border border-(--tertiary-color) bg-(--background-screen-color)">
+                <p className="px-3 py-1 rounded-full border border-(--tertiary-color) bg-(--background-screen-color) w-fit">
                   <strong>Department:</strong> {job.department}
                 </p>
               </div>
@@ -109,12 +111,15 @@ const JobOpening = () => {
               {/* Requirements */}
               <ul className="space-y-2">
                 {job.requirements.map((req, index) => (
-                  <li key={index} className="flex gap-3 text-(--grey-70)">
+                  <li
+                    key={index}
+                    className="flex gap-3 text-sm sm:text-base text-(--grey-70)"
+                  >
                     <CheckCircle
                       size={18}
                       className="text-(--primary-color) mt-1 shrink-0"
                     />
-                    <span>{req}</span>
+                    <span className="wrap-break-word">{req}</span>
                   </li>
                 ))}
               </ul>
@@ -124,7 +129,7 @@ const JobOpening = () => {
             <button
               className="
                 mt-6
-                w-fit
+                w-full sm:w-fit
                 bg-(--primary-color)
                 px-6 py-3
                 rounded-full

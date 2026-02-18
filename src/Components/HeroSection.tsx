@@ -36,7 +36,7 @@ const HeroSection = () => {
       </div>
 
       {/* RIGHT SIDE */}
-      <div className="relative w-full lg:w-1/2 flex justify-center items-center mt-16 lg:mt-0">
+      <div className="relative w-[90%] lg:w-1/2 h-[90%] lg:h-full flex justify-center items-center mt-16 lg:mt-0">
         <div className="relative w-full max-w-sm sm:max-w-md lg:w-105 lg:h-130">
           {/* Arrow (desktop only) */}
           <img
@@ -48,24 +48,7 @@ const HeroSection = () => {
           {/* Main Card */}
           <div className="relative z-10 w-full bg-(--background-screen-color) border-2 border-(--tertiary-color) p-4 sm:p-6 rounded-2xl">
             {/* Monthly Income Badge */}
-            <div
-              className="
-  absolute
-  -top-10
-  -left-10
-  sm:-top-10
-  sm:-left-20
-  border-2
-  border-(--tertiary-color)
-  flex
-  items-center
-  gap-2
-  rounded-2xl
-  p-3
-  bg-(--temporary-green-color)
-  z-20
-"
-            >
+            <div className=" absolute -top-10 -left-10 sm:-top-10 sm:-left-20 border-2 border-(--tertiary-color) flex items-center gap-2 rounded-2xl p-3 bg-(--temporary-green-color) z-20">
               <Plus className="w-5 h-5 sm:w-8 sm:h-8 bg-(--primary-color) rounded-full text-(--background-navbar-color)" />
               <div className="flex flex-col text-xs sm:text-sm">
                 <span>+ $5000,00</span>
@@ -161,24 +144,7 @@ const HeroSection = () => {
             </div>
 
             {/* Supported Currency Badge */}
-            <div
-              className="
-  absolute
-  -bottom-14
-  -right-10
-  sm:-bottom-16
-  sm:-right-20
-  border-2
-  border-(--tertiary-color)
-  flex
-  items-center
-  gap-3
-  rounded-full
-  p-2
-  bg-(--temporary-green-color)
-  z-20
-"
-            >
+            <div className="absolute -bottom-14 -right-10 sm:-bottom-16 sm:-right-20 border-2 border-(--tertiary-color) flex items-center gap-3 rounded-full p-2 bg-(--temporary-green-color) z-20">
               <span className="text-xs whitespace-nowrap">
                 Supported Currency
               </span>

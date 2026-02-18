@@ -15,7 +15,7 @@ const App = () => {
         ) : (
           ""
         )}
-        <div className="w-[80%] mx-auto p-4">
+        <div className="w-[95%] lg:w-[80%] mx-auto p-4">
           <Navbar />
           <AllRoutes />
         </div>

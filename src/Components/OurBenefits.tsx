@@ -1,4 +1,5 @@
 import { BadgeDollarSign, HeartPulse, PiggyBank, Scale } from "lucide-react";
+import IconBadge from "./IconBadge";
 
 const OurBenefits = () => {
   const OurBenefitsData = [
@@ -35,32 +36,76 @@ const OurBenefits = () => {
         well-being and success. We offer a comprehensive range of benefits
         designed to support their personal and professional growth.
       </p>
+      <div className="relative mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
+          {OurBenefitsData.map((item, index) => {
+            const Icon = item.icon;
+            const isPatternA = index === 0 || index === 3;
+            const isLast = index === OurBenefitsData.length - 1;
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
-        {OurBenefitsData.map((item) => {
-          const Icon = item.icon;
+            return (
+              <div key={item.title} className="relative">
+                <div
+                  className={`
+              relative
+              p-10
+              flex flex-col gap-4
+              bg-(--background-navbar-color)
+              overflow-hidden
+              ${
+                isPatternA
+                  ? `
+                    rounded-tl-[40px] rounded-br-[40px]
+                    rounded-tr-[18px] rounded-bl-[18px]
+                  `
+                  : `
+                    rounded-tr-[40px] rounded-bl-[40px]
+                    rounded-tl-[18px] rounded-br-[18px]
+                  `
+              }
+            `}
+                >
+                  <div className="absolute inset-0 bg-linear-to-br from-(--primary-color)/5 to-transparent pointer-events-none" />
+                  <div className="relative">
+                    <div className="flex items-center gap-4">
+                      <IconBadge icon={Icon} size="md" />
+                      <span className="text-xl text-(--white)">
+                        {item.title}
+                      </span>
+                    </div>
 
-          return (
-            <div
-              key={item.title}
-              className="border rounded-tr-2xl rounded-bl-2xl rounded-tl-3xl rounded-br-3xl border-tl-(--primary-color) border-br-(--primary-color) p-10 flex flex-col gap-4 bg-(--background-navbar-color)"
-            >
-              <div className="flex items-center gap-3">
-                <Icon
-                  className="w-12 h-12 text-(--primary-color)"
-                  strokeWidth={1.8}
-                />
-                <span className="text-xl md:text-xl text-(--white)">
-                  {item.title}
-                </span>
+                    <p className="text-(--grey-70) text-base md:text-lg mt-4">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+                {!isLast && (
+                  <div
+                    className="md:hidden my-6 h-0.5
+              bg-[repeating-linear-gradient(to_right,var(--tertiary-color)_0_16px,transparent_16px_32px)]
+              opacity-40"
+                  />
+                )}
               </div>
+            );
+          })}
+        </div>
 
-              <p className="text-(--grey-70) text-base md:text-lg">
-                {item.desc}
-              </p>
-            </div>
-          );
-        })}
+        <div
+          className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 h-[48%] w-0.5
+    bg-[repeating-linear-gradient(to_bottom,var(--tertiary-color)_0_16px,transparent_16px_32px)]
+    opacity-40 pointer-events-none"
+        />
+        <div
+          className="hidden md:block absolute bottom-0 left-1/2 -translate-x-1/2 h-[48%] w-0.5
+    bg-[repeating-linear-gradient(to_bottom,var(--tertiary-color)_0_16px,transparent_16px_32px)]
+    opacity-40 pointer-events-none"
+        />
+        <div
+          className="hidden md:block absolute left-0 right-0 top-1/2 -translate-y-1/2 h-0.5
+    bg-[repeating-linear-gradient(to_right,var(--tertiary-color)_0_16px,transparent_16px_32px)]
+    opacity-40 pointer-events-none"
+        />
       </div>
     </div>
   );
